@@ -1731,6 +1731,7 @@ function disable_charge(){
         dataType: "json",
         data: JSON.stringify({ "CHARGE_STATE": openCharge }),
         success: function (data) {
+            stone_getXMLCfg('battery_level', refreshBattery);
             var batStatus=document.getElementById("bat_status").innerHTML
             if ((!data) || (data.Code === 0)) {
                 if (batStatus==="Full"){
