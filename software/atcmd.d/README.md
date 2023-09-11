@@ -1,5 +1,6 @@
 - adb push atcmd /home/root
 - adb shell
+- mount -rw -o remount /
 - chmod +x /home/root/atcmd
 - ln -s /home/root/atcmd /usr/bin/atcmd
 - atcmd "AT+CGSN"

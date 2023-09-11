@@ -5,5 +5,11 @@
 
 | 文件名                       | 作用                          |
 |:--------------------------|:----------------------------|
-| jc09_auto_disable_esim.sh | 0727版本模拟网页禁用esim，可添加到开机自启动中 |
+| software|软件包，如8080后台安装文件|
+| software/admin8080|8080后台安装文件，需要算码|
+| software/atcmd.d|AT命令行版，来源于网友编译|
 | beautify 目录|结合8080后台，电池信息显示及充电控制|
+| enhance | 增强一些功能 |
+| enhance/jc09_auto_disable_esim.sh | 0727版本模拟网页禁用esim，可添加到开机自启动中 |
+| enhance/jc09_8080_auto_charging.sh | 自动充停止，TODO |
+| enhance/temperature | 温度控制 |

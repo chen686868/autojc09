@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<ThermalConfig>
+	<sensor>
+		<sensor_type>board-thmzone</sensor_type>
+		<polling_delay>2000</polling_delay>
+		<AvgPeriod>60000</AvgPeriod>
+		<zone_level id="1" type="active">
+			<temp>70000</temp>
+			<trip id="0" >
+				<action name="swtich_on_temp" arg="80000" file="/sys/class/thermal/thermal_zone0/trip_point_0_temp" />
+				<action name="control_temp" arg="85000" file="/sys/class/thermal/thermal_zone0/trip_point_1_temp" />
+			</trip>
+		</zone_level>
+		<zone_level id="2" type="critical">
+			<temp>110000</temp>
+			<trip id="0" >
+				<action name="shutdown" arg="" file=""/>
+			</trip>
+		</zone_level>	
+	</sensor>
+	<sensor>
+		<sensor_type>soc-thmzone</sensor_type>
+		<polling_delay>2000</polling_delay>
+		<AvgPeriod>30000</AvgPeriod>
+		<zone_level id="1" type="active">
+			<temp>90000</temp>
+			<trip id="0" >
+				<action name="min_core" arg="2" file="/sys/class/thermal/cooling_device0/min_core_num" />
+				<action name="min_freq" arg="768000" file="/sys/class/thermal/cooling_device0/min_freq" />
+			</trip>
+		</zone_level>
+		<zone_level id="2" type="hot">
+			<temp>95000</temp>
+			<trip id="0" >
+				<action name="min_core" arg="1" file="/sys/class/thermal/cooling_device0/min_core_num" />
+			</trip>
+		</zone_level>
+		<zone_level id="3" type="critical">
+			<temp>110000</temp>
+			<trip id="0" >
+				<action name="shutdown" arg="" file=""/>
+			</trip>
+		</zone_level>	
+	</sensor>
+	<sensor>
+		<sensor_type>pa-thmzone</sensor_type>
+		<polling_delay>2000</polling_delay>
+		<DroPeriod>30000</DroPeriod>
+		<AvgPeriod>30000</AvgPeriod>
+		<zone_level id="1" type="active">
+			<temp>75000</temp>
+			<trip id="0" >
+				<action name="powerback" arg="AT+SPTPPB=0" file="" />
+			</trip>
+			<trip id="1" >
+				<action name="powerback" arg="AT+SPTPPB=0" file="" />
+			</trip>
+			<trip id="2" >
+				<action name="powerback" arg="AT+SPTPPB=0" file="" />
+			</trip>
+			<trip id="3" >
+				<action name="powerback" arg="AT+SPTPPB=0" file="" />
+			</trip>
+		</zone_level>
+		<zone_level id="2" type="hot">
+			<temp>85000</temp>
+			<trip id="0" >
+				<action name="powerback" arg="AT+SPTPPB=0" file="" />
+			</trip>
+		</zone_level>
+		<zone_level id="3" type="hot">
+			<temp>105000</temp>
+			<trip id="0" >
+				<action name="powerback" arg="AT+SPTPPB=0" file="" />
+			</trip>
+		</zone_level>
+	</sensor>
+	<sensor>
+		<sensor_type>pa5g-thmzone</sensor_type>
+		<polling_delay>2000</polling_delay>
+		<DroPeriod>30000</DroPeriod>
+		<AvgPeriod>30000</AvgPeriod>
+		<zone_level id="1" type="active">
+			<temp>75000</temp>
+			<trip id="0" >
+				<action name="powerback" arg='AT+SP5GCMDS="set nr power_control",0,0' file="" />
+			</trip>
+			<trip id="1" >
+				<action name="powerback" arg='AT+SP5GCMDS="set nr power_control",0,0' file="" />
+			</trip>
+			<trip id="2" >
+				<action name="powerback" arg='AT+SP5GCMDS="set nr power_control",0,0' file="" />
+			</trip>
+			<trip id="3" >
+				<action name="powerback" arg='AT+SP5GCMDS="set nr power_control",0,0' file="" />
+			</trip>
+                </zone_level>
+                <zone_level id="2" type="hot">
+                        <temp>85000</temp>
+			<trip id="0" >
+				<action name="powerback" arg='AT+SP5GCMDS="set nr power_control",0,0' file="" />
+			</trip>
+                </zone_level>
+                <zone_level id="3" type="hot">
+                        <temp>90000</temp>
+			<trip id="0" >
+				<action name="powerback" arg='AT+SP5GCMDS="set nr power_control",0,0' file="" />
+			</trip>
+		</zone_level>
+	</sensor>
+</ThermalConfig>
