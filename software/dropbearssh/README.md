@@ -1,0 +1,13 @@
+通过dropbear安装ssh步骤：
+- 上传dropbear.tar.gz到/home/root：`adb push dropbear.tar.gz /home/root`
+- 进入 adb 系统：`adb shell`
+- 挂载目录为读写：`mount -o remount,rw /`
+- 添加环境变量：`vi /etc/profile` 在 `PATH=xxx`这一行添加上 `:/sbin:/usr/sbin`
+- 让环境变量生效：`source /etc/profile`
+- 切换到 /home/root：`cd /home/root`
+- 解压压缩包：`tar -zxvf dropbear.tar.gz`
+- 删除压缩包： `rm dropbear.tar.gz`
+- 设置root密码：`passwd` 输入两次root用户密码
+- 执行开启ssh： `bash /home/root/dropbear/script/start-sshd.sh`
+- 开机自启动：`vi /etc/init.d/hostname.sh` 在行尾新建一行添加上 `bash /home/root/dropbear/script/start-sshd.sh &`
+- 重启
